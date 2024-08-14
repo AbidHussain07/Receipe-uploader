@@ -26,22 +26,22 @@ To set up the project locally, follow these steps:
    git clone https://github.com/AbidHussain07/Recipe-uploader.git
    cd Receipe
 
-2. **Set-up virtual environment**
- ```bash
- python -m venv venv
- source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+2. **Set-up virtual environment** 
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-3. **Install Dependencies**
+3.  **Install Dependencies**
 
- ```bash
- pip install -r requirements.txt
- 
+    ```bash
+    pip install -r requirements.txt
+    
 4. **Run the server**
-
- ```bash
- python manage.py makemigrations
- python manage.py migrate
- python manage.py runserver
+   
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver
 
 
 

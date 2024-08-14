@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block start %}
+
+<div class = "container mt-5 mb-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2 class="text-center mb-3">Login</h2>
+        <hr>
+{% comment %} ===================================Alert Message======================================================== {% endcomment %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+    {% endfor %}
+</div>
+    {% endif %}
+{% comment %} ===================================Alert Message Over======================================================== {% endcomment %}
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+          </div>
+          <span class = "text-center">Don't have an account?</span>
+          <span class = "text-center mb-2">Create an account? <a href="/register/" class="link login-link">Register</a></span>
+        <button type="submit" class="btn btn-outline-success col-3 mx-auto">Login</button>
+      </form>
+
+    
+
+</div>
+
+
+{% endblock start%}

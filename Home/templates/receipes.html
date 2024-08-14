@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block receipe %}active{% endblock receipe %}
+{% block start %}
+
+<div class=" mx-auto  text-center col-8 p-3 text-white bg-secondary rounded shadow-sm">
+  <div class="text-center lh-1">
+    <h3 class="text-center mb-0 text-white">Welcome -<strong> {{request.user.first_name}}</strong>- to Chef's Receipe Point</h2>
+    {% comment %} <small>Since 2011</small> {% endcomment %}
+  </div>
+</div>
+
+<div class = "container mt-5">
+  <div class = "mt-5">
+    <div class = "mx-auto col-6 mb-3">
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" name ="search" type="search" placeholder="Search Receipe" aria-label="Search" >
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+    </div>
+    <hr class = "shadow-lg">
+  </div>
+
+    <table class="table table-striped table-bordered center ">
+        <thead>
+          <tr align="center">
+            <th scope="col">#</th>
+            <th scope="col" >Receipe Name</th>
+            <th scope="col">Receipe Image</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for receipe in queryset %}
+          <tr >
+            <th scope="row">{{forloop.counter}}</th>
+            <td align="center">
+              <a href = "/details-receipes/{{receipe.id}}">{{receipe.receipe_name}}</a>
+            </td>
+            <td align="center"><img src = "/media/{{receipe.receipe_image}}" style = "height :200px" class = "center"></td>
+            <td align="center">
+                <a href="/update-receipe/{{receipe.id}}" class = "btn btn-outline-success m-2"> Edit</a>
+                <a href="/delete-receipe/{{receipe.id}}" class = "btn btn-outline-danger"> Delete</a>
+            </td>
+          </tr>
+        </tbody>
+        {% endfor %}
+      </table>
+    
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if queryset.has_previous %}
+          <li class="page-item">
+            <a href= "?page={queryset.previous_page_number}"class="page-link">Previous</a>
+          </li>
+          {% endif %}
+          {% if queryset.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{queryset.next_page_number}}">Next</a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+</div>
+
+
+{% endblock start%}

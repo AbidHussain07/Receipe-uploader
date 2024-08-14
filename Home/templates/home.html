@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block home %}active{% endblock home %}
+{% block start %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3b3838;
+        }
+        .header {
+            background-color: #3b3838;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 2em 0;
+        }
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .main-content .section {
+            width: 48%;
+            background-color: #fff;
+            padding: 4em;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .main-content .section h2 {
+            margin-top: 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.7em 1.2em;
+            font-size: 1em;
+            color: #fff;
+            background-color: #0f0404;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #827a7a;
+        }
+    </style>
+<body>
+    <div class="header">
+        <h1>Chef 's Receipe Point</h1>
+        <p>Share your favorite recipes with the world!</p>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="section">
+                <h2>Upload a Recipe</h2>
+                <p>Share your favorite recipes with our community. Upload your recipes and add ingredients, and photos.</p>
+                <a href="/add-receipe/" class="btn">Upload Recipe</a>
+            </div>
+            <div class="section">
+                <h2>Browse Recipes</h2>
+                <p>Explore a wide variety of recipes shared by others. Find inspiration and discover new dishes to try. </p>
+                <a href="/receipes/" class="btn">Browse Recipes</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{% endblock start%}

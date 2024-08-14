@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block start  %}
+
+
+<section class="section-content padding-y bg">
+    <div class="container">
+
+        <style>
+            .aside-image {
+                width: 400px;
+                height: 400px;
+                margin: 50px;
+                float: left;
+              }
+        </style>
+    
+    <!-- ============================ COMPONENT 1 ================================= -->
+    <div class="container">
+        <div class="row no-gutters">
+            {% for image in queryset %}
+            <aside class="col-md-6">
+    <article class="gallery-wrap"> 
+    <div class="img-big-wrap">
+      <div>
+        <a><img src="/media/{{image.receipe_image}}" class = "aside-image"></a>
+    </div>
+    </div> <!-- slider-product.// -->
+    </article> <!-- gallery-wrap .end// -->
+            </aside>
+            {% endfor %}
+            <main class="col-md-6 border-left">
+    <article class="content-body">
+    {% for receipe in queryset %}
+    
+    <h2 class="title">{{receipe.receipe_name}}</h2>
+    
+    <p>{{receipe.receipe_description}}</p>
+    
+    <div class = "card mx-auto shadow-lg mb-3">
+        <strong>Ingredients:</strong>
+       <textarea rows="10">{{receipe.receipe_ingredients}}  </textarea> 
+    </div>
+    <dl class="row">
+      <dt class="col-sm-3">Upload By : </dt>
+      <dd class="col-sm-9">{{receipe.user.first_name}}</dd>
+      {% endfor %}
+    <hr>
+        
+            </div> <!-- col.// -->
+        </div> <!-- row.// -->
+    </article> <!-- product-info-aside .// -->
+            </main> <!-- col.// -->
+        </div> <!-- row.// -->
+    <!-- ============================ COMPONENT 1 END .// ================================= -->
+    </section>
+
+    
+    {% endblock %}
